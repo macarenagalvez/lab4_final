@@ -1,0 +1,12 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "",
+  "database": "ebsv",
+  "entities": [
+    "dist/modulo-acceso/cliente/**.entity{.ts,.js}"
+  ],
+  "synchronize": true
+}
