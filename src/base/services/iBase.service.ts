@@ -7,5 +7,5 @@ export interface IBaseService<T> {
 
   save(t: T): Promise<T>;
 
-  delete(id: number);
+  delete(id: number): Promise<void>;
 }
