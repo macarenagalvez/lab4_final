@@ -1,7 +1,7 @@
 import { Base } from 'src/base/entities/base';
 import { Entity, Column, ManyToOne } from 'typeorm';
 
-//entidad composicion con pedido
+// entidad composicion con pedido y factura
 @Entity('DetallePedido')
 export class DetallePedido extends Base {
   @Column({ type: 'int' })
