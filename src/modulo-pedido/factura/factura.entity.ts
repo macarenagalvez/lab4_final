@@ -42,5 +42,5 @@ export class Factura extends Base {
       cascade: ['update', 'insert'],
     },
   )
-  detalles_pedido: DetallePedido;
+  detalles_pedido: DetallePedido[];
 }

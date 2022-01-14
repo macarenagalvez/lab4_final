@@ -1,4 +1,5 @@
 import { Base } from 'src/base/entities/base';
+import { Pedido } from 'src/modulo-pedido/pedido/pedido.entity';
 import { Column, Entity, OneToMany, OneToOne } from 'typeorm';
 import { Domicilio } from '../domicilio/domicilio.entity';
 
@@ -19,6 +20,6 @@ export class Cliente extends Base {
   })
   domicilio: Domicilio;
 
-  // @OneToMany((type) => Pedido, (pedido) => pedido.cliente_, { eager: true })
-  // pedidos: Pedido[];
+  @OneToMany((type) => Pedido, (pedido) => pedido.cliente, { eager: true })
+  pedidos: Pedido[];
 }
