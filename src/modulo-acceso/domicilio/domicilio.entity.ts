@@ -11,9 +11,7 @@ export class Domicilio extends Base {
   @Column()
   localidad: string;
 
-  @OneToOne(() => Cliente, (cliente) => cliente.domicilio, {
-    onDelete: 'CASCADE',
-  })
+  @OneToOne((type) => Cliente, (cliente) => cliente.domicilio)
   @JoinColumn({ name: 'cliente_id' })
   cliente: Cliente;
 }

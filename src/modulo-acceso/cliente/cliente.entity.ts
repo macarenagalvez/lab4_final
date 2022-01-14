@@ -13,7 +13,7 @@ export class Cliente extends Base {
   @Column()
   email: string;
 
-  @OneToOne(() => Domicilio, (domicilio) => domicilio.cliente, {
+  @OneToOne((type) => Domicilio, (domicilio) => domicilio.cliente, {
     eager: true,
     cascade: ['insert'],
   })
