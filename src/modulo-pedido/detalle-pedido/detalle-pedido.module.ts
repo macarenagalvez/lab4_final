@@ -9,4 +9,4 @@ import { DetallePedidoService } from './detalle-pedido.service';
   providers: [DetallePedidoService],
   controllers: [DetalleFacturaController],
 })
-export class ClienteModule {}
+export class DetalleFacturaModule {}
