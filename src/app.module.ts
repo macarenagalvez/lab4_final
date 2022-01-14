@@ -12,6 +12,7 @@ import { PedidoModule } from './modulo-pedido/pedido/pedido.module';
     DetalleFacturaModule,
     FacturaModule,
     PedidoModule,
+    ArticuloInsumoModule,
   ],
   controllers: [],
   providers: [],
