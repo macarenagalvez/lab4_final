@@ -1,4 +1,4 @@
 import { Controller } from '@nestjs/common';
 
-@Controller('factura')
+@Controller('api/v1/factura')
 export class FacturaController {}
