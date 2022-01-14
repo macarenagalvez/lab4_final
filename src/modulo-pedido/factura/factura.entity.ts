@@ -32,7 +32,7 @@ export class Factura extends Base {
   nro_tarjeta: string;
 
   @OneToOne((type) => Pedido, (pedido) => pedido.factura)
-  @JoinColumn({ name: 'cliente_id' })
+  @JoinColumn({ name: 'pedido_id' })
   pedido: Pedido;
 
   @OneToMany(
