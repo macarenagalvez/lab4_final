@@ -6,9 +6,9 @@
   "password": "",
   "database": "ebsv",
   "entities": [
-    "dist/modulo-acceso/cliente/**.entity{.ts,.js}",
-    "dist/modulo-acceso/domicilio/**.entity{.ts,.js}",
-    "dist/modulo-acceso/**/**.entity{.ts,.js}"
+    "dist/modulo-acceso/**/**.entity{.ts,.js}",
+    "dist/modulo-pedido/**/**.entity{.ts,.js}",
+    "dist/modulo-stock/**/**.entity{.ts,.js}"
   ],
   "synchronize": true
 }
