@@ -7,6 +7,8 @@ import { PedidoModule } from './modulo-pedido/pedido/pedido.module';
 import { ArticuloInsumoModule } from './modulo-stock/articulo-insumo/articulo-insumo.module';
 import { ArticuloManufacturadoDetalleModule } from './modulo-stock/articulo-manufacturado-detalle/articulo-manufacturado-detalle.module';
 import { ArticuloManufacturadoModule } from './modulo-stock/articulo-manufacturado/articulo-manufacturado.module';
+import { RubroArticuloModule } from './modulo-stock/rubro-articulo/rubro-articulo.module';
+import { RubroGeneralModule } from './modulo-stock/rubro-general/rubro-general.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { ArticuloManufacturadoModule } from './modulo-stock/articulo-manufactura
     ArticuloInsumoModule,
     ArticuloManufacturadoModule,
     ArticuloManufacturadoDetalleModule,
+    RubroArticuloModule,
+    RubroGeneralModule,
   ],
   controllers: [],
   providers: [],
