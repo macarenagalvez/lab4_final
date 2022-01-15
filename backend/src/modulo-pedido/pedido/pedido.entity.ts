@@ -7,6 +7,7 @@ import {
   OneToOne,
   OneToMany,
   JoinColumn,
+  DeleteDateColumn,
 } from 'typeorm';
 import { DetallePedido } from '../detalle-pedido/detalle-pedido.entity';
 import { Factura } from '../factura/factura.entity';
@@ -43,4 +44,7 @@ export class Pedido extends Base {
   @ManyToOne((type) => Cliente, (Cliente) => Cliente.pedidos)
   @JoinColumn({ name: 'cliente_id' })
   cliente: Cliente;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

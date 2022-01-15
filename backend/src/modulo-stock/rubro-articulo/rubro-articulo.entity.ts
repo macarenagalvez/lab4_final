@@ -1,5 +1,5 @@
 import { Base } from 'src/base/entities/base';
-import { Entity, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, OneToMany, ManyToOne, JoinColumn, DeleteDateColumn } from 'typeorm';
 import { ArticuloInsumo } from '../articulo-insumo/articulo-insumo.entity';
 
 @Entity('RubroArticulo')
@@ -16,4 +16,8 @@ export class RubroArticulo extends Base {
 
   @OneToMany((type) => ArticuloInsumo, (insumo) => insumo.rubro_insumo)
   insumos: ArticuloInsumo[];
+
+  // con esto puedo hacer una baja logico y no fisica
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

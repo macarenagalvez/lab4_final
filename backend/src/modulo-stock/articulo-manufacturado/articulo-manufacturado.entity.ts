@@ -1,6 +1,6 @@
 import { Base } from 'src/base/entities/base';
 import { DetallePedido } from 'src/modulo-pedido/detalle-pedido/detalle-pedido.entity';
-import { Entity, Column, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn, OneToMany, DeleteDateColumn } from 'typeorm';
 import { ArticuloManufacturadoDetalle } from '../articulo-manufacturado-detalle/articulo-manufacturado-detalle.entity';
 import { RubroGeneral } from '../rubro-general/rubro-general.entity';
 
@@ -31,4 +31,7 @@ export class ArticuloManufacturado extends Base {
   @ManyToOne((type) => RubroGeneral, (catagoria) => catagoria.manufacturados)
   @JoinColumn({ name: 'rubro_id' })
   rubro: RubroGeneral;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

@@ -2,7 +2,7 @@ import { Base } from 'src/base/entities/base';
 import { ArticuloInsumo } from 'src/modulo-stock/articulo-insumo/articulo-insumo.entity';
 import { ArticuloManufacturado } from 'src/modulo-stock/articulo-manufacturado/articulo-manufacturado.entity';
 import { RubroArticulo } from 'src/modulo-stock/rubro-articulo/rubro-articulo.entity';
-import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinColumn, DeleteDateColumn } from 'typeorm';
 import { Factura } from '../factura/factura.entity';
 import { Pedido } from '../pedido/pedido.entity';
 
@@ -39,4 +39,7 @@ export class DetallePedido extends Base {
   )
   @JoinColumn({ name: 'manufacturado_id' })
   manufacturado: ArticuloManufacturado;
+  
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

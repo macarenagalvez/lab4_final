@@ -6,6 +6,7 @@ import {
   OneToOne,
   JoinColumn,
   OneToMany,
+  DeleteDateColumn,
 } from 'typeorm';
 import { DetallePedido } from '../detalle-pedido/detalle-pedido.entity';
 import { Pedido } from '../pedido/pedido.entity';
@@ -43,4 +44,7 @@ export class Factura extends Base {
     },
   )
   detalles_pedido: DetallePedido[];
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

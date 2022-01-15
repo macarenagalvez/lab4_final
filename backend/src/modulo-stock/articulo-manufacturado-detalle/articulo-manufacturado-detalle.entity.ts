@@ -1,5 +1,5 @@
 import { Base } from 'src/base/entities/base';
-import { Entity, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, OneToMany, ManyToOne, JoinColumn, DeleteDateColumn } from 'typeorm';
 import { ArticuloInsumo } from '../articulo-insumo/articulo-insumo.entity';
 import { ArticuloManufacturado } from '../articulo-manufacturado/articulo-manufacturado.entity';
 
@@ -24,4 +24,7 @@ export class ArticuloManufacturadoDetalle extends Base {
   )
   @JoinColumn({ name: 'manufacturado_id' })
   manufacturado: ArticuloManufacturado;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }
