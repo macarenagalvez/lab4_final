@@ -62,9 +62,9 @@ export class BaseService<T> implements IBaseService<T> {
     }
   }
 
-  async delete(id: number) {
+  async delete(id: number): Promise<void> {
     try {
-      this.genericRepository.delete(id);
+      this.genericRepository.softDelete(id);
     } catch (error) {
       throw new BadGatewayException(error);
     }
