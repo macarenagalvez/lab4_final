@@ -5,6 +5,7 @@ import { DetalleFacturaModule } from './modulo-pedido/detalle-pedido/detalle-ped
 import { FacturaModule } from './modulo-pedido/factura/factura.module';
 import { PedidoModule } from './modulo-pedido/pedido/pedido.module';
 import { ArticuloInsumoModule } from './modulo-stock/articulo-insumo/articulo-insumo.module';
+import { ArticuloManufacturadoDetalleModule } from './modulo-stock/articulo-manufacturado-detalle/articulo-manufacturado-detalle.module';
 import { ArticuloManufacturadoModule } from './modulo-stock/articulo-manufacturado/articulo-manufacturado.module';
 
 @Module({
@@ -16,6 +17,7 @@ import { ArticuloManufacturadoModule } from './modulo-stock/articulo-manufactura
     PedidoModule,
     ArticuloInsumoModule,
     ArticuloManufacturadoModule,
+    ArticuloManufacturadoDetalleModule,
   ],
   controllers: [],
   providers: [],
