@@ -12,7 +12,7 @@ $ npm install
 
 ```bash
 # development
-$ nest start
+$  npm run start:dev
 
 ## Support
 
