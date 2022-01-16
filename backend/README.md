@@ -5,6 +5,7 @@
 ## Installation
 
 ```bash
+$ cd backend
 $ npm install
 ```
 
@@ -12,7 +13,8 @@ $ npm install
 
 ```bash
 # development
-$  npm run start:dev
+$ cd backend
+$ npm run start:dev
 
 ## Support
 
