@@ -20,16 +20,18 @@ export class Factura extends Base {
   @Column({ type: 'int' })
   numero: number;
 
+  // 10% si es retiro por local
   @Column({ type: 'double' })
   monto_descuento: number;
 
   @Column({ type: 'double' })
   subtotal: number;
 
+  // 0: debito, 1: credito o 2: efectivo en el local, delivery solo efectivo
   @Column()
   forma_pago: string;
 
-  @Column()
+  @Column({default: null})
   nro_tarjeta: string;
 
   @OneToOne((type) => Pedido, (pedido) => pedido.factura)

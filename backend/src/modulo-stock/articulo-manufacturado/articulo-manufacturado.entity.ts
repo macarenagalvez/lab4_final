@@ -25,7 +25,7 @@ export class ArticuloManufacturado extends Base {
     (type) => ArticuloManufacturadoDetalle,
     (detalle_manufacturado) => detalle_manufacturado.manufacturado,
     { eager: true, cascade: ['insert'] },
-  )
+  )// esto es la receta del manufacturado/producto
   detalles_manufacturado: ArticuloManufacturadoDetalle[];
 
   @ManyToOne((type) => RubroGeneral, (catagoria) => catagoria.manufacturados)

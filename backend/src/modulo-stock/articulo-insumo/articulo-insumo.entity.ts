@@ -1,6 +1,12 @@
 import { Base } from 'src/base/entities/base';
 import { DetallePedido } from 'src/modulo-pedido/detalle-pedido/detalle-pedido.entity';
-import { Entity, Column, ManyToOne, OneToMany, DeleteDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  OneToMany,
+  DeleteDateColumn,
+} from 'typeorm';
 import { ArticuloManufacturadoDetalle } from '../articulo-manufacturado-detalle/articulo-manufacturado-detalle.entity';
 import { RubroArticulo } from '../rubro-articulo/rubro-articulo.entity';
 
@@ -12,7 +18,7 @@ export class ArticuloInsumo extends Base {
   @Column({ type: 'double' })
   precio_compra: number;
 
-  @Column({ type: 'double' })
+  @Column({ type: 'double', default: 0 })
   precio_venta: number;
 
   @Column({ type: 'double' })
@@ -21,7 +27,7 @@ export class ArticuloInsumo extends Base {
   @Column({ type: 'double' })
   stock_actual: number;
 
-  @Column()
+  @Column({ default: 'kg' })
   unidad_medida: string;
 
   @Column({ default: true })
@@ -29,7 +35,7 @@ export class ArticuloInsumo extends Base {
 
   @OneToMany(
     (type) => DetallePedido,
-    (detalle_catalogo) => detalle_catalogo.insumo,
+    (detalle_catalogo) => detalle_catalogo.insumo
   )
   detalles_pedido: DetallePedido[];
 

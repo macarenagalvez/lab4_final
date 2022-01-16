@@ -15,23 +15,25 @@ import { Factura } from '../factura/factura.entity';
 // entidad composicion con pedido y factura
 @Entity('Pedido')
 export class Pedido extends Base {
-  @Column()
+  @Column({ type: 'date' })
   fecha: Date;
 
   @Column({ type: 'int' })
   numero: number;
 
+  // 0: retiro por local, 1: delivery
   @Column({ type: 'int' })
   tipo_envio: number;
 
-  @Column()
-  estado: string;
+  // 0: PENDIENTE, 1: APROBADO, 2: TERMINADO, 3: FACTURADO, 4: EN DELIVERY
+  @Column({ default: 0 })
+  estado: number;
 
   @Column({ type: 'datetime' })
   hora_estimada: Date;
 
   @OneToMany((type) => DetallePedido, (DetallePedido) => DetallePedido.pedido, {
-    cascade: ['update', 'insert'],
+    cascade: ['update', 'insert'],  eager: true,
   })
   detalles_pedido: DetallePedido[];
 
