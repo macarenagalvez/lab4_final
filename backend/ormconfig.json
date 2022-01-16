@@ -5,10 +5,6 @@
   "username": "root",
   "password": "",
   "database": "ebsv",
-  "entities": [
-    "dist/modulo-acceso/**/**.entity{.ts,.js}",
-    "dist/modulo-pedido/**/**.entity{.ts,.js}",
-    "dist/modulo-stock/**/**.entity{.ts,.js}"
-  ],
+  "entities": ["dist/**/**/**.entity{.ts,.js}"],
   "synchronize": true
 }
