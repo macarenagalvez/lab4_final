@@ -18,17 +18,28 @@ import { Repository } from 'typeorm';
 export class BaseService<T> implements IBaseService<T> {
   constructor(private readonly genericRepository: Repository<T>) {}
 
-  async findAll(): Promise<T[]> {
+  getAll(): Promise<T[]> {
     try {
-      return await (<Promise<T[]>>this.genericRepository.find());
+      return <Promise<T[]>>this.genericRepository.find(); // SELECT * from ENTITY
     } catch (error) {
       throw new BadGatewayException(error);
     }
   }
 
-  async findOne(id: number): Promise<T> {
+  getOneById(id: number): Promise<T> {
     try {
-      return await (<Promise<T>>this.genericRepository.findOne(id));
+      return <Promise<T>>this.genericRepository.findOneOrFail(id); // SELECT
+    } catch (error) {
+      throw new BadGatewayException(error);
+    }
+  }
+
+  async saveOne(entity: T): Promise<T> {
+    try {
+      // creo la entidad nueva
+      const newEntity: T = await this.genericRepository.create(entity);
+      // la guardo
+      return this.genericRepository.save(newEntity); // INSERT
     } catch (error) {
       throw new BadGatewayException(error);
     }
@@ -36,35 +47,18 @@ export class BaseService<T> implements IBaseService<T> {
 
   async update(id: number, entity: T): Promise<T> {
     try {
-      const responseAux: Record<string, any> =
-        await this.genericRepository.findOne(id);
-
-      if (responseAux == null) {
-        throw new NotFoundException('El id no existe');
-      }
-
+      await this.getOneById(id);
       entity['id'] = Number(id);
-      const mergeEntity: any = Object.assign(responseAux, entity);
-      const response: T = await this.genericRepository.save(mergeEntity);
-
-      return response;
+      return await this.saveOne(entity);
     } catch (error) {
       throw new BadGatewayException(error);
     }
   }
 
-  async save(entity: T): Promise<T> {
+  async delete(id: number) {
     try {
-      const response: T = await this.genericRepository.save(entity);
-      return response;
-    } catch (error) {
-      throw new BadGatewayException(error);
-    }
-  }
-
-  async delete(id: number): Promise<void> {
-    try {
-      this.genericRepository.softDelete(id);
+      const entity = await this.getOneById(id);
+      await this.genericRepository.softRemove(entity);
     } catch (error) {
       throw new BadGatewayException(error);
     }

@@ -9,14 +9,14 @@ export class Cliente extends Base {
   nombre: string;
   @Column()
   apellido: string;
-  @Column()
+  @Column({ type: "bigint"})
   telefono: number;
   @Column()
   email: string;
 
   @OneToOne((type) => Domicilio, (domicilio) => domicilio.cliente, {
     eager: true,
-    cascade: ['insert'],
+    cascade: ['insert'], nullable: false
   })
   domicilio: Domicilio;
 

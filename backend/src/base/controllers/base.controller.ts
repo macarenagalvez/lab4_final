@@ -23,7 +23,7 @@ export class BaseController<T> {
   @Get('/')
   async getAll(@Res() res): Promise<T[]> {
     try {
-      const result: T[] = await this._IBaseService.findAll();
+      const result: T[] = await this._IBaseService.getAll();
       return res.status(HttpStatus.OK).json(result);
     } catch (error) {
       return res.status(HttpStatus.NOT_FOUND).json({
@@ -35,7 +35,7 @@ export class BaseController<T> {
   @Get('/:id')
   async getOne(@Res() res, @Param('id') id: number): Promise<T[]> {
     try {
-      const result: T = await this._IBaseService.findOne(id);
+      const result: T = await this._IBaseService.getOneById(id);
       return res.status(HttpStatus.OK).json(result);
     } catch (error) {
       return res.status(HttpStatus.NOT_FOUND).json({
@@ -47,7 +47,7 @@ export class BaseController<T> {
   @Post('/')
   async post(@Res() res, @Body() entity: T): Promise<T> {
     try {
-      const result: T = await this._IBaseService.save(entity);
+      const result: T = await this._IBaseService.saveOne(entity);
       return res.status(HttpStatus.CREATED).json(result);
     } catch (error) {
       return res.status(HttpStatus.BAD_REQUEST).json({

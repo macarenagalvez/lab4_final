@@ -1,11 +1,11 @@
 export interface IBaseService<T> {
-  findAll(): Promise<T[]>;
+  getAll(): Promise<T[]>;
 
-  findOne(id: number): Promise<T>;
+  getOneById(id: number): Promise<T>;
 
   update(id: number, t: T): Promise<T>;
 
-  save(t: T): Promise<T>;
+  saveOne(t: T): Promise<T>;
 
-  delete(id: number): Promise<void>;
+  delete(id: number): any;
 }
